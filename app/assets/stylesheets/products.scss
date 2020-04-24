@@ -1,0 +1,208 @@
+
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.products {
+
+    left: 0px;
+    right: 0px;
+
+    max-width: 95em;
+    
+    margin: 6em auto 0em auto;
+   
+    .main_header{
+
+        color: $primary_font_color;
+
+    }
+
+    .empty{
+
+        width: 100%;
+
+        margin: 1em;
+
+        text-align: center;
+
+        color: $secondary_font_color;
+
+    }
+
+    a {
+        padding: 0.5em 0.5em;
+        border-radius: 0.354em;
+    }
+    
+    .flex_table {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 15px;
+        box-sizing: border-box;
+        
+        margin-top: 2em;
+
+        overflow: hidden;
+
+        box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.1), 
+                    -5px -5px 10px rgba(255, 255, 255, 1);
+
+        .flex_table-cell{
+
+                display: flex;
+                align-items: stretch;
+
+                &.list_line_odd {
+
+                    background-color: #f4f5f9;
+                
+                }
+                
+                &.image {
+            
+                    display: none;
+
+                    justify-content: center;
+
+                    width: 18%;
+
+                    z-index: 1;
+
+                    div{
+                        display: flex;
+
+                        justify-content: center;
+                        align-self: center;
+
+                        width: 80%;
+                        height: 80%;
+
+                        overflow: hidden;
+
+                        border-radius: 0.5em;
+                        border: 1px solid rgba(255, 255, 255, 0);
+                        box-sizing: border-box;
+
+                        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.075) inset, 
+                                    -2px -2px 3px rgba(255, 255, 255, 0.8) inset, 
+                                    2px 2px 5px rgba(0, 0, 0, 0.1), 
+                                    -2px -2px 5px rgba(255, 255, 255, .8),
+                                    -1px -1px 0px rgba(255, 255, 255, 0.5);
+                    
+                        img{
+
+                            z-index: -1;
+                            padding: 0px 100%;
+                            background-color: #ffffff;
+                        
+                        }
+                        
+                    }
+                    
+                    @media (min-width: 50em) {
+                        
+                        display: flex;
+                    
+                        img {
+                            align-self: center;
+                            height: 11.3em;
+                        }
+                    }
+                }
+                
+                &.description {
+
+                    width: 67%;
+
+                    .content{
+
+                        align-self: center;
+                        padding: 0 1em;
+
+                        color: $secondary_font_color;
+
+                        h1 {
+                            font-size: 1.4em;
+                            color: $primary_font_color;
+                        }
+                    }
+
+                    @media (max-width: 50em) {
+                        
+                        width: 80%;
+                    
+                    }
+
+                    @media (max-width: 40em) {
+                        
+                        width: 100%;
+                    
+                    }
+                }
+                
+                &.actions {
+
+                    justify-content: center;
+
+                    width: 15%;
+
+                    margin: 0;
+
+                    ul {
+
+                        display: flex;
+                        flex-direction: column;
+
+                        min-width: 6em;
+                        width: 80%;
+                        
+                        padding: 0;
+                        list-style: none;
+                        
+                        .neubutton {
+                            @extend %neubutton;
+                        }
+                    }
+
+                    @media (max-width: 50em) {
+
+                        width: 20%;
+                    
+                    }
+
+                    @media (max-width: 40em) {
+                        
+                        width: 100%;
+                    
+                    }
+                }
+
+        }
+
+    }
+    
+    .footerlinks {
+
+        width: 50%;
+
+        left: 0;
+        right: 0;
+
+        margin: 1.5em auto;
+
+        .neubutton{
+            @extend %neubutton;
+
+            a{
+                padding: 1.2em;
+
+                font-weight: bold;
+            }
+        }
+
+    }
+}
