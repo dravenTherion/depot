@@ -6,38 +6,40 @@
 
 <div class="flex_table">
   
-  <% if @products.any? %>
+    <% if @products.any? %>
 
-      <% @products.each do |product| %>
+        <% @products.each do |product| %>
 
-          <% @alt_color = cycle('list_line_odd', 'list_line_even'); %>
+            <% @alt_color = cycle('list_line_odd', 'list_line_even'); %>
 
-          <div class="image flex_table-cell <%= @alt_color %>">
-              <div>
-                  <%= image_tag  product.image_url, class: "list_image" %>
-              </div>
-          </div>
-          <div class="description flex_table-cell <%= @alt_color %>">
-              <div class="content">
-                  <h1>
-                      <%= product.title %>
-                  </h1>
-                  <p>
-                      <%= truncate strip_tags(product.description), length: 150 %>
-                  </p>
-              </div>
-          </div>
-          <div class="actions flex_table-cell <%= @alt_color %>">
-              <ul>
-                  <li class="neubutton"> <%= link_to  "Show", product %> </li>
-                  <li class="neubutton"> <%= link_to  "Edit", edit_product_path(product) %></li>
-                  <li class="neubutton"> <%= link_to  "Destroy", product, method: :delete, data: {confirm: 'Are you sure?'} %></li>
-              </ul>
-          </div>
+            <div class="image flex_table-cell <%= @alt_color %>">
+                <div class="image-thumb">
+                    <%= image_tag  product.image_url, class: "list_image" %>
+                </div>
+            </div>
+
+            <div class="description flex_table-cell <%= @alt_color %>">
+                <div class="description-content">
+                    <h2>
+                        <%= product.title %>
+                    </h2>
+                    <p>
+                        <%= truncate strip_tags(product.description), length: 150 %>
+                    </p>
+                </div>
+            </div>
+
+            <div class="actions flex_table-cell <%= @alt_color %>">
+                <ul>
+                    <li class="neu_button"> <%= link_to  "Show", product %> </li>
+                    <li class="neu_button"> <%= link_to  "Edit", edit_product_path(product) %></li>
+                    <li class="neu_button"> <%= link_to  "Destroy", product, method: :delete, data: {confirm: 'Are you sure?'} %></li>
+                </ul>
+            </div>
       
-      <% end %>
+        <% end %>
 
-  <% else %>
+    <% else %>
 
     <div class="empty">There are no products found.</div>
 
@@ -46,7 +48,7 @@
 </div>
 
 <div class="footerlinks">
-    <div class="neubutton">
+    <div class="neu_button">
       <%= link_to 'Add New Product +', new_product_path %>
     </div>
 </div>
