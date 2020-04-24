@@ -1,0 +1,49 @@
+<% if notice %>
+<aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h1 class="main_header">Catalog</h1>
+
+<div class="flex_table">
+  
+    <% if @products.any? %>
+        <% cache @products do %>
+            <% @products.each do |product| %>
+                <% cache product do %>
+
+                    <% @alt_color = cycle('list_line_odd', 'list_line_even'); %>
+
+                    <div class="image flex_table-cell <%= @alt_color %>">
+                        <div class="image-thumb">
+                            <%= image_tag  product.image_url, class: "list_image" %>
+                        </div>
+                        <div class="price">
+                            <%= number_to_currency(product.price) %>
+                        </div>
+                    </div>
+
+                    <div class="description flex_table-cell <%= @alt_color %>">
+                        <div class="description-content">
+                            
+                            <h2>
+                                <%= product.title %>
+                            </h2>
+                            
+                            <p>
+                                <%= sanitize(product.description) %>
+                            </p>
+                            
+                        </div>
+                    </div>
+        
+                <% end %>
+            <% end %>
+        <% end %>
+
+    <% else %>
+
+    <div class="empty">There are no products found.</div>
+
+  <% end %>
+
+</div>
