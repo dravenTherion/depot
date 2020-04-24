@@ -5,20 +5,24 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @page_title = "Admin Page";
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @page_title = "Admin Page";
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @page_title = "Admin Page";
   end
 
   # GET /products/1/edit
   def edit
+    @page_title = "Admin Page";
   end
 
   # POST /products
