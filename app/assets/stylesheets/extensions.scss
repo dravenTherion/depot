@@ -42,3 +42,25 @@
     }
 
 }
+
+%neubutton_alt{
+
+    @extend %neubutton;
+
+    a{
+
+        color:  $link_font_color_alt;
+        background: $highlight_color;
+
+        &:hover{
+            color: $link_font_color_alt--hover !important;
+            background:  darken($highlight_color, 5%);
+        }
+
+        &:visited{
+            color: $link_font_color_alt--visited;
+        }  
+
+    }
+
+}

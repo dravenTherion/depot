@@ -195,7 +195,8 @@
         margin: 1.5em auto;
 
         .neubutton{
-            @extend %neubutton;
+            
+            @extend %neubutton_alt;
 
             a{
                 padding: 1.2em;
