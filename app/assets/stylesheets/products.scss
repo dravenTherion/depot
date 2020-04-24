@@ -4,17 +4,12 @@
 
 .products {
 
-    left: 0px;
-    right: 0px;
+    @extend %inner_content;
 
-    max-width: 95em;
-    
-    margin: 6em auto 0em auto;
+    max-width: $content_main_maxwidth;
    
     .main_header{
-
-        color: $primary_font_color;
-
+        @extend %main_header;
     }
 
     .empty{
@@ -36,30 +31,17 @@
     
     .flex_table {
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        @extend %flex_table;
+        @extend %neu_main;
 
-        border: 1px solid rgba(255, 255, 255, 0.75);
-        border-radius: 15px;
-        box-sizing: border-box;
-        
-        margin-top: 2em;
-
-        overflow: hidden;
-
-        box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.1), 
-                    -5px -5px 10px rgba(255, 255, 255, 1);
+        margin-top: 1em;
 
         .flex_table-cell{
 
-                display: flex;
-                align-items: stretch;
+                @extend %flex_cell;
 
                 &.list_line_odd {
-
-                    background-color: #f4f5f9;
-                
+                    background-color: rgba(242, 242, 245, 0.5);
                 }
                 
                 &.image {
@@ -72,34 +54,17 @@
 
                     z-index: 1;
 
-                    div{
+                    div.image-thumb{
+
+                        @extend %neu_thumbnail;
+
                         display: flex;
 
                         justify-content: center;
                         align-self: center;
 
                         width: 80%;
-                        height: 80%;
-
-                        overflow: hidden;
-
-                        border-radius: 0.5em;
-                        border: 1px solid rgba(255, 255, 255, 0);
-                        box-sizing: border-box;
-
-                        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.075) inset, 
-                                    -2px -2px 3px rgba(255, 255, 255, 0.8) inset, 
-                                    2px 2px 5px rgba(0, 0, 0, 0.1), 
-                                    -2px -2px 5px rgba(255, 255, 255, .8),
-                                    -1px -1px 0px rgba(255, 255, 255, 0.5);
-                    
-                        img{
-
-                            z-index: -1;
-                            padding: 0px 100%;
-                            background-color: #ffffff;
-                        
-                        }
+                        height: 10em;
                         
                     }
                     
@@ -118,16 +83,16 @@
 
                     width: 67%;
 
-                    .content{
+                    .description-content{
 
                         align-self: center;
                         padding: 0 1em;
 
                         color: $secondary_font_color;
 
-                        h1 {
+                        h2 {
                             font-size: 1.4em;
-                            color: $primary_font_color;
+                            color: $highlight_color;
                         }
                     }
 
@@ -163,8 +128,8 @@
                         padding: 0;
                         list-style: none;
                         
-                        .neubutton {
-                            @extend %neubutton;
+                        .neu_button {
+                            @extend %neu_button;
                         }
                     }
 
@@ -194,9 +159,9 @@
 
         margin: 1.5em auto;
 
-        .neubutton{
-            
-            @extend %neubutton_alt;
+        .neu_button{
+
+            @extend %neu_button_alt;
 
             a{
                 padding: 1.2em;

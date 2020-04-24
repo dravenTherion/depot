@@ -9,7 +9,81 @@
     height: 100%;
 }
 
-%neubutton{
+%main_header{
+    @extend %neu_main;
+    
+    color: $primary_font_color;
+    text-transform: uppercase;
+    padding: .5em 1em;
+}
+
+%inner_content{
+    left: 0px;
+    right: 0px;
+
+    margin: 2em auto 2em auto;
+}
+
+%flex_table{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+%flex_cell{
+    display: flex;
+    align-items: stretch;
+}
+
+
+/** NEUMORPHISM THEME **/
+
+$neu_big: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 1);
+$neu_big--inset: 5px 5px 10px rgba(0, 0, 0, 0.1) inset, -5px -5px 10px rgba(255, 255, 255, 1) inset;
+
+$neu_small: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.8);
+$neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255, 255, 255, 0.8) inset;
+
+
+%neu_main{
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    box-sizing: border-box;
+
+    box-shadow: $neu_big;
+
+}
+
+%neu_main--inset{
+
+    @extend %neu_main;
+
+    box-shadow: $neu_big--inset;
+
+}
+
+%neu_main_small{
+
+    @extend %neu_main;
+
+    box-shadow: $neu_small;
+
+}
+
+%neu_main_small--inset{
+
+    @extend %neu_main;
+
+    box-shadow: $neu_small--inset;
+
+}
+
+%neu_button{
 
     padding: 0.5em 0.5em;
 
@@ -24,16 +98,14 @@
         color: $link_font_color;
         background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.035) 100%);
 
-        box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.2),
-                    -2px -2px 5px rgba(255, 255, 255, 0.8);
+        box-shadow:  $neu_small;
 
         &:hover{
             color: $link_font_color--hover !important;
 
             background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
 
-            box-shadow:  1px 1px 3px rgba(0, 0, 0, 0.2) inset,
-                        -1px -1px 3px rgba(255, 255, 255, 0.8) inset;
+            box-shadow: $neu_small--inset;
         }
 
         &:visited{
@@ -43,12 +115,11 @@
 
 }
 
-%neubutton_alt{
+%neu_button_alt{
 
-    @extend %neubutton;
+    @extend %neu_button;
 
     a{
-
         color:  $link_font_color_alt;
         background: $highlight_color;
 
@@ -60,7 +131,30 @@
         &:visited{
             color: $link_font_color_alt--visited;
         }  
+    }
 
+}
+
+%neu_thumbnail{
+
+    border-radius: 0.5em;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.075) inset, 
+                -2px -2px 3px rgba(255, 255, 255, 0.8) inset, 
+                2px 2px 5px rgba(0, 0, 0, 0.1), 
+                -2px -2px 5px rgba(255, 255, 255, .8),
+                -1px -1px 0px rgba(255, 255, 255, 0.5);
+
+    overflow: hidden;
+
+    img{
+
+        z-index: -1;
+        padding: 100% 100%;
+        background-color: #ffffff;
+    
     }
 
 }

@@ -1,5 +1,7 @@
+@import 'variables.scss';
+
 body {
-  background-color: #ebecf0;
+  background-color: $primary_color;
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;

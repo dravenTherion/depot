@@ -1,0 +1,144 @@
+
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.store {
+
+    @extend %inner_content;
+    
+    max-width: $content_main_maxwidth;
+
+    .main_header{
+        @extend %main_header;
+    }
+    
+    .flex_table {
+
+        @extend %flex_table;
+        @extend %neu_main;
+
+        margin-top: 1em;
+
+        .flex_table-cell{
+
+            @extend %flex_cell;
+
+            padding: 1.5em 0;
+
+            &.list_line_odd {
+                background-color: rgba(242, 242, 245, 0.5);
+            }
+
+            &.image {
+            
+                display: none;
+
+                flex-direction: column;
+                
+                align-items: center;
+                justify-content: start;
+
+                width: 20%;
+
+                z-index: 1;
+
+                div.image-thumb{
+
+                    @extend %neu_thumbnail;
+
+                    display: flex;
+
+                    justify-content: center;
+
+                    width: 80%;
+                    height: 15em;
+                    
+                }
+                
+                @media (min-width: 50em) {
+                    
+                    display: flex;
+                
+                    img {
+                        align-self: center;
+                        height: 11.3em;
+                    }
+                }
+
+                .price{
+
+                    margin-top: 1em;
+
+                    font-size: 1.5em;
+
+                    color: $primary_font_color;
+
+                }
+            }
+            
+            &.description {
+
+                flex-direction: column;
+
+                width: 80%;
+
+                .description-content{
+
+                    align-self: center;
+                    padding: 0 2em 0 1em;
+
+                    color: $secondary_font_color;
+
+                    h2 {
+                        font-size: 1.4em;
+                        color: $highlight_color;
+                    }
+
+                }
+
+                @media (max-width: 50em) {
+                    
+                    width: 100%;
+                
+                }
+
+            }
+        
+        }
+
+    }
+
+
+    ul.catalog {
+    
+        border-top: solid 0.250em;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            padding: 1em;
+            margin: 0;
+            border-bottom: solid thin #ddd;
+            
+            // This makes sure our <li> has enough height
+            // to hold the entire image, since it's floated
+            &::after {
+                clear: both;
+                content: " ";
+                display: block;
+            }
+            img {
+                float: left;
+                padding: 1em;
+                margin-right: 1em;
+                margin-bottom: 1em;
+                box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
+            }
+            .price {
+                font-size: 1.414em;
+            }
+        }
+
+    }
+}
