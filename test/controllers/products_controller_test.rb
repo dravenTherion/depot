@@ -9,6 +9,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+
+    assert_select 'main .flex_table-cell.image', minimum: 3
+    assert_select 'main .flex_table-cell.description', minimum: 3
   end
 
   test "should get new" do
@@ -46,4 +49,5 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to products_url
   end
+
 end
