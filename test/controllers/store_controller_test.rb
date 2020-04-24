@@ -9,7 +9,7 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_select 'main .flex_table-cell.image', minimum: 3
     assert_select 'main .flex_table-cell.description', minimum: 3
     assert_select 'h2', 'Programming Ruby 1.9'
-    assert_select '.price', /\$[,\d]+\.\d\d/
+    assert_select '.price', /\₱[,\d]+\.\d\d PHP/
 
   end
 
