@@ -18,7 +18,7 @@
                             <%= image_tag  product.image_url, class: "list_image" %>
                         </div>
                         <div class="price">
-                            <%= number_to_currency(product.price) %>
+                            <%= number_to_currency(product.price, unit: '₱') + ' PHP' %>
                         </div>
                     </div>
 
