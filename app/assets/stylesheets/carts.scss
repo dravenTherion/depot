@@ -1,0 +1,111 @@
+
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.carts {
+
+    @extend %inner_content;
+    
+    .main_header{
+        @extend %main_header;
+    }
+
+    .empty{
+        @extend %empty;
+    }
+    
+    .flex_table {
+
+        @extend %flex_table;
+        @extend %neu_main;
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        margin-top: 1em;
+
+        ul{
+            width: 70%;
+
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li{
+                padding: 1em;
+                display: flex;
+
+                span{
+
+                    padding: 0 0.1em;
+                    
+                    &:first-child{
+                        width: 10%;
+
+                        font-weight: bold;
+
+                        &:after{
+                            content: '  X';
+                            font-weight: normal;
+                        }
+                    }
+                    
+                    &:nth-child(2){
+                        width: 70%;
+                    }
+                    
+                    &:last-child{
+                        width: 20%;
+
+                        text-align: right;
+
+                        font-weight: bold;
+
+                        &:after{
+                            content: none;
+                        }
+                    }
+                
+                }
+
+                &.total{
+
+                    justify-content: flex-end;
+
+                    span{
+                     
+                        width: 80%;
+
+                        font-size: 1.2em;
+                        text-align: right;
+
+                        padding-top: 1em;
+
+                        &:after{
+                            content: none;
+                        }
+
+                        &:last-child{
+                            width: 20%;
+                            border-top: 2px solid $primary_font_color;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .empty_cart{
+                    
+            @extend %neu_button_alt;
+
+            margin: 1em 0 0 0.5em;
+
+            input[type="submit"]{
+                padding: 0.75em;
+            }
+            
+        }
+    }
+}
