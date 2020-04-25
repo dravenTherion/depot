@@ -14,6 +14,10 @@
 
             <% @cart.line_items.each do |line_item| %>
                 <li>
+                    <span class="modify">
+                        <div class="modify_quantity"><%= button_to '-', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                        <div class="modify_quantity"><%= button_to '+', line_items_path(product_id: line_item.product) %></div>
+                    </span>
                     <span class="quantity"><%= line_item.quantity %></span>
                     <span class="title"><%= line_item.product.title %></span>
                     <span class="price"><%= number_to_currency(line_item.total_price, unit: '₱') + ' PHP' %></span>

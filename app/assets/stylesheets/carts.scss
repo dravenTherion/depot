@@ -26,7 +26,7 @@
         margin-top: 1em;
 
         ul{
-            width: 70%;
+            width: 80%;
 
             list-style: none;
             padding: 0;
@@ -40,26 +40,47 @@
 
                     padding: 0 0.1em;
                     
-                    &:first-child{
+                    &.modify{
+                        display: flex;
                         width: 10%;
+                        
+                        .modify_quantity{
 
+                            @extend %neu_button;
+                            padding: 0;
+                            margin: 0 0.75em 0 0;
+
+                            input[type="submit"]{
+                                width: 1.5em;
+                                font-size: 1.2em;
+                                font-weight: bold;
+                            }
+
+                        }
+
+                    }
+
+                    &.quantity{
+                        width: 7%;
+
+                        font-size: 1.2em;
                         font-weight: bold;
-
+                        
                         &:after{
                             content: '  X';
+                            font-size: 0.75em;
                             font-weight: normal;
                         }
                     }
                     
-                    &:nth-child(2){
-                        width: 70%;
+                    &.title{
+                        width: 63%;
                     }
                     
-                    &:last-child{
+                    &.price{
                         width: 20%;
 
                         text-align: right;
-
                         font-weight: bold;
 
                         &:after{
@@ -78,9 +99,12 @@
                         width: 80%;
 
                         font-size: 1.2em;
+                        font-weight: bold;
                         text-align: right;
 
                         padding-top: 1em;
+
+                        border-top: 2px solid transparent;
 
                         &:after{
                             content: none;

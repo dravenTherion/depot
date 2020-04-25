@@ -2,9 +2,9 @@ class LineItemsController < ApplicationController
 
   include CurrentCart
   before_action :set_cart, only: [:create]
-  before_action :invalid_owner, only: [:show, :edit, :update, :destroy]
+  #before_action :invalid_owner, only: [:show, :edit, :update, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_product_access
 
   # GET /line_items
   # GET /line_items.json
@@ -15,6 +15,8 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+    #redirect direct access to product from link_items
+    :invalid_product_access
   end
 
   # GET /line_items/new
@@ -63,11 +65,21 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    @line_item.destroy
-    respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if(@line_item.quantity > 1)
+      @line_item.quantity -= 1
+      @line_item.save
+    else
+      @line_item.destroy
     end
+
+    respond_to do |format|
+
+      format.html { redirect_to @line_item.cart, notice: 'Item was successfully removed from your cart.' }
+      format.json { head :no_content }
+    
+    end
+
   end
 
   private

@@ -12,6 +12,12 @@ module CurrentCart
     
     end
 
+    # Redirect invalid line_item direct access to product
+    def invalid_product_access
+        logger.error "Attempt to access product #{params[:id]} from invalid source"
+        redirect_to store_index_url
+    end
+    
     # Redirect invalid cart to store index
     def invalid_cart
         logger.error "Attempt to access invalid cart #{params[:id]}"
