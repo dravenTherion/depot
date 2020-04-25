@@ -6,22 +6,12 @@
 
     @extend %inner_content;
 
-    max-width: $content_main_maxwidth;
-   
     .main_header{
         @extend %main_header;
     }
 
     .empty{
-
-        width: 100%;
-
-        margin: 1em;
-
-        text-align: center;
-
-        color: $secondary_font_color;
-
+        @extend %empty;
     }
 
     a {
@@ -68,7 +58,7 @@
                         
                     }
                     
-                    @media (min-width: 50em) {
+                    @media (min-width: $width_treshold_mid) {
                         
                         display: flex;
                     
@@ -88,21 +78,20 @@
                         align-self: center;
                         padding: 0 1em;
 
-                        color: $secondary_font_color;
-
                         h2 {
                             font-size: 1.4em;
                             color: $highlight_color;
+                            text-shadow: $neu_text;
                         }
                     }
 
-                    @media (max-width: 50em) {
+                    @media (max-width: $width_treshold_mid) {
                         
                         width: 80%;
                     
                     }
 
-                    @media (max-width: 40em) {
+                    @media (max-width: $width_treshold_sml) {
                         
                         width: 100%;
                     
@@ -133,13 +122,13 @@
                         }
                     }
 
-                    @media (max-width: 50em) {
+                    @media (max-width: $width_treshold_mid) {
 
                         width: 20%;
                     
                     }
 
-                    @media (max-width: 40em) {
+                    @media (max-width: $width_treshold_sml) {
                         
                         width: 100%;
                     
