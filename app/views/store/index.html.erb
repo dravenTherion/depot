@@ -1,8 +1,21 @@
 <% if notice %>
-<aside id="notice"><%= notice %></aside>
+    <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1 class="main_header">Catalog</h1>
+<div class="main_header">
+
+    <h1>Catalog</h1>
+
+    <% if @counter > 5 %>
+        <div class="info">
+            your store <%= 'visit'.pluralize @counter %>:  
+            <span>
+                <%= @counter %>
+            </span>
+        </div>
+    <% end %>
+
+</div>
 
 <div class="flex_table">
   
@@ -19,6 +32,9 @@
                         </div>
                         <div class="price">
                             <%= number_to_currency(product.price, unit: '₱') + ' PHP' %>
+                        </div>
+                        <div class="add_to_cart">
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
                         </div>
                     </div>
 
