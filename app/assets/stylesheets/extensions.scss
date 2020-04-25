@@ -1,5 +1,17 @@
 @import 'variables.scss';
 
+%empty{
+    
+    width: 100%;
+
+    margin: 1em;
+
+    text-align: center;
+
+    color: $secondary_font_color;
+
+}
+
 %pseudo_base{
     content: '';                        
     position: absolute;
@@ -13,15 +25,28 @@
     @extend %neu_main;
     
     color: $primary_font_color;
-    text-transform: uppercase;
-    padding: .5em 1em;
+    
+    h1{
+        display: inline-block;
+
+        text-transform: uppercase;
+
+        padding: 1em 0 1em 1.25em;
+        margin: 0;
+    }
 }
 
 %inner_content{
-    left: 0px;
-    right: 0px;
 
-    margin: 2em auto 2em auto;
+    width: auto;
+    max-width: $content_main_maxwidth;
+
+    margin: 2em 1% 2em .5%;
+
+    @media (min-width: $width_treshold) {
+        max-width: $content_main_maxwidth;
+        width: 80%;
+    }
 }
 
 %flex_table{
@@ -29,7 +54,9 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+    min-height: 50em;
+
+    /*background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);*/
 }
 
 %flex_cell{
@@ -40,12 +67,13 @@
 
 /** NEUMORPHISM THEME **/
 
-$neu_big: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 1);
+$neu_big: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, .6);
 $neu_big--inset: 5px 5px 10px rgba(0, 0, 0, 0.1) inset, -5px -5px 10px rgba(255, 255, 255, 1) inset;
 
 $neu_small: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.8);
 $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255, 255, 255, 0.8) inset;
 
+$neu_text: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.75);
 
 %neu_main{
 
@@ -62,6 +90,7 @@ $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255,
     @extend %neu_main;
 
     box-shadow: $neu_big--inset;
+    background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.035) 100%);
 
 }
 
@@ -75,7 +104,7 @@ $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255,
 
 %neu_main_small--inset{
 
-    @extend %neu_main;
+    @extend %neu_main--inset;
 
     box-shadow: $neu_small--inset;
 
@@ -85,18 +114,23 @@ $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255,
 
     padding: 0.5em 0.5em;
 
-    a{
+    a, input[type="submit"]{
+
         display: block;
 
         text-align: center;
         text-decoration: none;
 
         border-radius: 0.5em;
+        border: none;
+        outline: none;
 
         color: $link_font_color;
         background: linear-gradient(167deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.035) 100%);
 
         box-shadow:  $neu_small;
+
+        cursor: pointer;
 
         &:hover{
             color: $link_font_color--hover !important;
@@ -108,7 +142,8 @@ $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255,
 
         &:visited{
             color: $link_font_color--visited;
-        }            
+        }    
+
     }
 
 }
@@ -117,7 +152,7 @@ $neu_small--inset: 1px 1px 3px rgba(0, 0, 0, 0.2) inset, -1px -1px 3px rgba(255,
 
     @extend %neu_button;
 
-    a{
+    a, input[type="submit"]{
         color:  $link_font_color_alt;
         background: $highlight_color;
 

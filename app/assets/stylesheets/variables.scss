@@ -1,14 +1,18 @@
 $content_main_maxwidth: 80em;
 
+$width_treshold: 60em;
+$width_treshold_mid: 50em;
+$width_treshold_sml: 40em;
+
 $primary_font_color: #666;
 $secondary_font_color: #777;
 
 $primary_color: #ebecf0;
 $highlight_color: #157ce2;
 
-$link_font_color: #666;
+$link_font_color: $secondary_font_color;
 $link_font_color--hover: #157ce2;
-$link_font_color--visited: #666;
+$link_font_color--visited: $secondary_font_color;
 
 $link_font_color_alt: #efefef;
 $link_font_color_alt--hover: #ffffff;

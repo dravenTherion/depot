@@ -20,13 +20,23 @@
 @import 'extensions.scss';
 
 body {
+
+    background-color: $primary_color;
+    color: $secondary_font_color;
+
     margin: 0;
     padding: 0;
+    
 }
 
 div.main_wrapper{
+
+    @extend %neu_main--inset;/**/
+
+    border-radius: 0;
+
     max-width: 100em;
-    height: 100%;
+    min-height: 100vh;
 
     margin: 0 auto;
 }
@@ -48,7 +58,20 @@ header.main {
 
 }
 
+.notice, #notice {
+    background: #ffb;
+    border-radius: 0.5em;
+    border: solid 0.177em #882;
+    color: #882;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 1em 1.414em;
+    text-align: center;
+}
+
 .main_content {
+
+    min-height: 86vh;
     
     margin:  0;
     padding: 0;
@@ -60,38 +83,46 @@ header.main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     
-    @media (min-width: 70em) {
+    @media (min-width: 60em) {
         flex-direction: row; // desktop is vertically laid out
         -webkit-box-orient: horizontal;
     }
         
     nav {
 
-        @extend %neu_main--inset;
+        @extend %neu_main;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
 
         padding-bottom: 1em;
-        background: $primary_color;
-        text-align: center; // mobile has centered nav
+        text-align: center;
     
         @media (min-width: 30em) {
             width: 100%;
         }
 
-        @media (min-width: 70em)
-        {
-            width: 16%;
-            margin: 3.5em 1% 0 1%;
+        @media (min-width: 60em) {
+            width: 20%;
+            margin: 2.5em .5% 0 1.5%;
             text-align: left; // desktop nav is left-aligned
-            padding: 1em; // and needs more padding
+            padding: 1em 0.5em; // and needs more padding
         }
 
         ul {
+            width: 80%;
+
             list-style: none;
             margin: 0;
             padding: .5em 0em;
+
+            @media (min-width: 60em) {
+                width: 100%;
+            }
         
             li.neu_button {
                @extend %neu_button;
@@ -102,14 +133,28 @@ header.main {
             }
         }
 
-        div.date_time{
+        div.date_time {
+
+            @extend %neu_main--inset;
+
+            width: 80%;
+
+            margin-top: 1em;
+            padding: 0.5em;
+
+            border-radius: 0.5em;
             
             text-align: center;
 
             line-height: 1.75em;
 
-            white-space: pre-line;
+            span {
+                white-space: pre-line;
+            }
 
+            @media (min-width: 60em){
+                margin-top: 2em;
+            }
         }
     }
     
