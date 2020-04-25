@@ -1,28 +1,25 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
-    @page_title = "Admin Page"
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
-    @page_title = "Admin Page"
   end
 
   # GET /products/new
   def new
     @product = Product.new
-    @page_title = "Admin Page"
   end
 
   # GET /products/1/edit
   def edit
-    @page_title = "Admin Page"
   end
 
   # POST /products
@@ -75,5 +72,11 @@ class ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
+    end
+
+    # Redirect invalid product to product list
+    def invalid_product
+      logger.error "Attempt to access invalid product #{params[:id]}"
+      redirect_to products_path, notice: 'Invalid product'
     end
 end
