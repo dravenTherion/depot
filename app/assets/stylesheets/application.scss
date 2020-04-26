@@ -45,7 +45,7 @@ header.main {
     
     text-align: center; // center on mobile
     
-    @media (min-width: 30em) {
+    @media (min-width: $width_treshold_sml) {
         text-align: left; // left align on desktop
         height: 10em;
     }
@@ -69,6 +69,15 @@ header.main {
     text-align: center;
 }
 
+#cart{
+
+    @extend %side_cart;
+
+    margin: 0;
+
+}
+
+
 .main_content {
 
     min-height: 86vh;
@@ -83,7 +92,7 @@ header.main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     
-    @media (min-width: 60em) {
+    @media (min-width: $width_treshold) {
         flex-direction: row; // desktop is vertically laid out
         -webkit-box-orient: horizontal;
     }
@@ -102,25 +111,26 @@ header.main {
         padding-bottom: 1em;
         text-align: center;
     
-        @media (min-width: 30em) {
+        @media (min-width: $width_treshold) {
             width: 100%;
         }
 
-        @media (min-width: 60em) {
+        @media (min-width: $width_treshold) {
             width: 20%;
+            min-width: 19em;
             margin: 2.5em .5% 0 1.5%;
             text-align: left; // desktop nav is left-aligned
             padding: 1em 0.5em; // and needs more padding
         }
 
-        ul {
+        ul.nav_buttons {
             width: 80%;
 
             list-style: none;
             margin: 0;
             padding: .5em 0em;
 
-            @media (min-width: 60em) {
+            @media (min-width: $width_treshold) {
                 width: 100%;
             }
         
@@ -152,7 +162,7 @@ header.main {
                 white-space: pre-line;
             }
 
-            @media (min-width: 60em){
+            @media (min-width: $width_treshold){
                 margin-top: 2em;
             }
         }

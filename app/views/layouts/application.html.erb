@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pragprog Online Store</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <head>
+        <title>Pragprog Online Store</title>
+        <%= csrf_meta_tags %>
 
-  <body>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-      <div class="main_wrapper">
+    <body>
 
-          <header class="main">
-              <h1><%= @page_title %></h1>
-          </header>
+        <div class="main_wrapper">
 
-          <section class="main_content">
-          
-              <nav class="side_nav">
-                  <ul>
-                      <li class="neu_button"><a href="/">Home</a></li>
-                      <li class="neu_button"><a href="/questions">Questions</a></li>
-                      <li class="neu_button"><a href="/news">News</a></li>
-                      <li class="neu_button"><a href="/contact">Contact</a></li>
-                  </ul>
+            <header class="main">
+                <h1><%= @page_title %></h1>
+            </header>
 
-                  <div class="date_time">
-                    <span><%= Time.now.strftime("%h %d, %Y\n%I:%M:%S %p") %></span>
-                  </div>
+            <section class="main_content">
 
-              </nav>
+                <nav class="side_nav">
 
-              <main class='<%= controller.controller_name %>'>
-                  <%= yield %>
-              </main>
+                    <div id="cart" class="carts">
+                        <%= render_if @cart && @cart.line_items.any?, @cart, {mute_notice: true, is_remote: true} %>
+                    </div>
+                    
+                    <ul class="nav_buttons">
+                        <li class="neu_button"><a href="/">Home</a></li>
+                        <li class="neu_button"><a href="/questions">Questions</a></li>
+                        <li class="neu_button"><a href="/news">News</a></li>
+                        <li class="neu_button"><a href="/contact">Contact</a></li>
+                    </ul>
 
-          </section>
+                    <div class="date_time">
+                        <span><%= Time.now.strftime("%h %d, %Y\n%I:%M:%S %p") %></span>
+                    </div>
 
-      </div>
+                </nav>
 
-  </body>
+                <main class='<%= controller.controller_name %>'>
+                    <%= yield %>
+                </main>
+
+            </section>
+
+        </div>
+
+    </body>
+
 </html>

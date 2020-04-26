@@ -65,6 +65,109 @@
 }
 
 
+/** SIDE CART **/
+
+%side_cart{
+
+    &.carts{
+        width: 80%;
+
+        @media (min-width: $width_treshold) {
+            width: 95%;
+        }
+
+        article{
+            @extend %neu_main_small;
+            margin: 0.5em 0;
+        }
+    }
+
+    .main_header, .flex_table{
+
+        box-shadow: none;
+        
+    }
+
+    .main_header{
+
+        h1{
+            padding-left: 1em;
+        }
+    
+    }
+
+    .empty{
+        margin-bottom: 2em;
+    }
+
+    .flex_table{
+
+        min-height: auto;
+        margin-top: 0;
+
+        .empty_cart{
+            margin: 0.5em 0 1em 0;
+        }
+
+        ul{
+            width: 95%;
+
+            li{
+                padding: 0.5em 0.5em 0.5em 0.3em;
+
+                font-size: 0.75em;
+
+                border-radius: 1em;
+
+                .modify{
+
+                    flex-direction: column-reverse;
+                    justify-content: flex-end;
+
+                    width: 13%;
+
+                    .modify_quantity{
+
+                        margin: 0 0.5em 1em 0em;
+                        font-size: 1.15em;
+
+                    }
+                }
+
+                .quantity{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 13%;
+                }
+
+                .title{
+                    width: 41%;
+                }
+
+                .price{
+                    width: 33%;
+                }
+
+                &.total{
+
+                    span{
+                        width: 25%;
+
+                        &:last-child{
+                            width: 55%;
+                        }
+                    }
+                
+                }
+            }
+        }
+
+    }
+
+}
+
+
 /** NEUMORPHISM THEME **/
 
 $neu_big: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, .6);
@@ -132,6 +235,8 @@ $neu_text: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.7
 
         cursor: pointer;
 
+        transition: box-shadow .3s;
+
         &:hover{
             color: $link_font_color--hover !important;
 
@@ -185,7 +290,7 @@ $neu_text: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.7
     img{
 
         z-index: -1;
-        padding: 100% 100%;
+        padding: 50% 50%;
         background-color: #ffffff;
     
     }

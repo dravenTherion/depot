@@ -1,0 +1,35 @@
+
+<% if line_item.quantity > 0 %>
+
+    <%
+        @highlight = '';
+
+        if  line_item == @current_item
+            if @invert
+                @highlight = 'class=line_item-highlight--invert';
+            else
+                @highlight = 'class=line_item-highlight';
+            end
+        end
+    
+    %>
+
+    <li <%= @highlight%>>
+        <span class="modify">
+            
+            <% if(cart.total_quantity > 1) %>
+                <div class="modify_quantity"><%= button_to '-', line_item, method: :delete, remote: is_remote %></div>
+            <% else %>
+                <div class="modify_quantity"><%= button_to '-', cart, method: :delete, data: { confirm: 'This action will empty your cart, are you sure?' }, 
+                remote: is_remote %></div>
+            <% end %>
+
+            <div class="modify_quantity"><%= button_to '+', line_items_path(product_id: line_item.product), remote: is_remote %></div>
+
+        </span>
+        <span class="quantity"><%= line_item.quantity %></span>
+            <span class="title"><%= line_item.product.title %></span>
+            <span class="price"><%= number_to_currency(line_item.total_price, unit: '₱') + ' PHP' %></span>
+    </li>
+
+<% end %>

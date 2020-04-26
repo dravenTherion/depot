@@ -3,6 +3,7 @@ class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
   #before_action :invalid_owner, only: [:show, :edit, :update, :destroy]
+  before_action :get_cart, only: [:show, :edit, :update, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_product_access
 
@@ -38,7 +39,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart}
+        format.html { redirect_to store_index_url}#@line_item.cart}
+        format.js { @current_item = @line_item }
         format.json { render :show,
           status: :created, location: @line_item }
       else
@@ -66,16 +68,23 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
 
+    @quantity = 0;
+
+    # if item quantity is greater than 1, decrease it by 1
     if(@line_item.quantity > 1)
       @line_item.quantity -= 1
       @line_item.save
+
+      @quantity = @line_item.quantity.to_s;
+    # otherwise delete it  
     else
       @line_item.destroy
     end
 
     respond_to do |format|
 
-      format.html { redirect_to @line_item.cart, notice: 'Item was successfully removed from your cart.' }
+      format.html { redirect_to store_index_url, notice: 'Item was successfully removed from your cart.' }
+      format.js { @invert = true, @current_item = @line_item }
       format.json { head :no_content }
     
     end

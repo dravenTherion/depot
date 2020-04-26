@@ -6,14 +6,16 @@
 
     <h1>Catalog</h1>
 
-    <% if @counter > 5 %>
-        <div class="info">
-            your store <%= 'visit'.pluralize @counter %>:  
-            <span>
-                <%= @counter %>
-            </span>
-        </div>
-    <% end %>
+    <% if defined?(@counter)
+        if @counter > 5 %>
+            <div class="info">
+                your store <%= 'visit'.pluralize @counter %>:  
+                <span>
+                    <%= @counter %>
+                </span>
+            </div>
+    <%  end 
+    end %>
 
 </div>
 
@@ -24,21 +26,38 @@
             <% @products.each do |product| %>
                 <% cache product do %>
 
-                    <% @alt_color = cycle('list_line_odd', 'list_line_even'); %>
+                    <% 
+                        @alt_color = cycle('list_line_odd', 'list_line_even');
+                        
+                        @highlight = ''
+                        
+                        if defined?(current_product)
+                            if(current_product.id == product.id)
+                                @highlight = 'product_item-highlight'
+                            end
+                        end
+                    %>
 
-                    <div class="image flex_table-cell <%= @alt_color %>">
+                    <div class="image flex_table-cell 
+                        <%= @alt_color %>
+                        <%= @highlight %>
+                    ">
                         <div class="image-thumb">
                             <%= image_tag  product.image_url, class: "list_image" %>
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
                         </div>
                         <div class="price">
                             <%= number_to_currency(product.price, unit: '₱') + ' PHP' %>
                         </div>
                         <div class="add_to_cart">
-                            <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
                         </div>
                     </div>
 
-                    <div class="description flex_table-cell <%= @alt_color %>">
+                    <div class="description flex_table-cell 
+                        <%= @alt_color %>
+                        <%= @highlight %>
+                    ">
                         <div class="description-content">
                             
                             <h2>
@@ -58,8 +77,8 @@
 
     <% else %>
 
-    <div class="empty">There are no products found.</div>
+        <div class="empty">There are no products found.</div>
 
-  <% end %>
+    <% end %>
 
 </div>

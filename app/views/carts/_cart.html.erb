@@ -1,0 +1,50 @@
+<% unless cart.line_items.empty? %>
+<article>
+    <% if notice && !mute_notice %>
+    
+        <aside id="notice"><%= notice %></aside>
+    
+    <% end
+
+        @remote = false;
+
+        if(defined?(is_remote))
+             @remote = is_remote;                     
+        end
+
+    %>
+
+    <div class="main_header">
+        <h1>Your Cart</h1>
+    </div>
+
+    <div class="flex_table">
+
+        <% if cart.line_items.any? %>
+
+            <ul>
+
+                <%= render cart.line_items, is_remote: @remote, cart: cart %>
+                    
+                <li class="total">
+                    <span>Total: </span>
+                    <span><%= number_to_currency(cart.total_price, unit: '₱') + ' PHP' %></span>
+                </li>
+
+            </ul>
+
+            <div class="empty_cart">
+
+                <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure you want to empty your cart?' }, remote: @remote %>
+
+            </div>
+
+        <% else %>
+
+            <div class="empty">Your cart is empty.</div>
+
+        <% end %>
+
+    </div>
+</article>
+<% end %>

@@ -1,6 +1,7 @@
 
 @import 'variables.scss';
 @import 'extensions.scss';
+@import 'effects.scss';
 
 .store {
 
@@ -37,6 +38,10 @@
             
             }
         }
+    }
+
+    .product_item-highlight{
+        @extend %item_highlight;
     }
 
     .empty{
@@ -78,12 +83,37 @@
                     @extend %neu_thumbnail;
 
                     display: flex;
-
                     justify-content: center;
 
                     width: 80%;
                     height: 15em;
                     
+                    form{
+                        height: 0;
+                        width: 0;
+
+                        input[type="submit"]{
+
+                            width: 30em;
+                            height: 30em;
+                            
+                            transform: translate(-95%,-25%);
+
+                            cursor: pointer;
+
+                            background-color: rgba(255, 255, 255, 0);
+                            color: transparent;
+
+                            border: none;
+                            outline: none;
+
+                            &:hover{
+                                background-color: rgba(255, 255, 255, 0.25);
+                            }
+                        
+                        }
+                    }
+
                 }
                 
                 @media (min-width: $width_treshold_mid) {
@@ -132,6 +162,7 @@
 
                     h2 {
                         font-size: 1.4em;
+                        
                         color: $highlight_color;
                         text-shadow: $neu_text;
                     }

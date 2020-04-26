@@ -1,3 +1,10 @@
-// Place all the styles related to the LineItems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'effects.scss';
+
+.line_item-highlight {
+    @extend %item_highlight;
+}
+
+.line_item-highlight--invert {
+    @extend %item_highlight--invert;
+}
+            

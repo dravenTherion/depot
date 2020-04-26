@@ -11,6 +11,12 @@ module CurrentCart
         session[:cart_id] = @cart.id
     
     end
+    
+    def get_cart
+        
+        @cart = Cart.find(session[:cart_id])
+    
+    end
 
     # Redirect invalid line_item direct access to product
     def invalid_product_access

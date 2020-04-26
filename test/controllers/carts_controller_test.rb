@@ -24,18 +24,37 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show cart" do
+    
     get cart_url(@cart)
-    assert_response :success
+  
+    if(@cart.id == session[:cart_id])
+      assert_response :success
+    else
+      assert_redirected_to store_index_url
+    end
+
   end
 
   test "should get edit" do
     get edit_cart_url(@cart)
-    assert_response :success
+    
+    if(@cart.id == session[:cart_id])
+      assert_response :success
+    else
+      assert_redirected_to store_index_url
+    end
+
   end
 
   test "should update cart" do
     patch cart_url(@cart), params: { cart: {  } }
-    assert_redirected_to cart_url(@cart)
+
+    if(@cart.id == session[:cart_id])
+      assert_response :success
+    else
+      assert_redirected_to store_index_url
+    end
+
   end
 
   test "should destroy cart" do
@@ -50,4 +69,5 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to store_index_url
     
   end
+    
 end

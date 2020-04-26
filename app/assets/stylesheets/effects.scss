@@ -1,0 +1,29 @@
+@import 'variables.scss';
+
+/** EFFECTS **/
+
+@keyframes item-highlight {
+    0% {
+        background: lighten($highlight_color, 30%);
+    }
+    100% {
+        background: none;
+    }
+}
+
+@keyframes item-highlight-invert {
+    0% {
+        background: lighten(red, 30%);
+    }
+    100% {
+        background: none;
+    }
+}
+
+%item_highlight {
+    animation: item-highlight 1s;
+}
+
+%item_highlight--invert {
+    animation: item-highlight-invert 1s;
+}
