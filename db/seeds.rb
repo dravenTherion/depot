@@ -88,4 +88,11 @@ image_url: 'https://www.hlj.com/media/catalog/product/cache/image/700x700/e9c397
 price: 4215.58)
 # . . .
 
+Product.create!(title: 'FRONT MISSION 3: WANDER ARTS GRILLE SECHS URBAN CAMOUFLAGE VER.', #+ (i+1).to_s,
+description:
+%{<p> <strong> <span> This is </span> a posable action figure of a character from science-fiction/anime. </strong> </p> <div class="productdescription"><p>Square Enix brings us a line-up from "Front Mission 3" of the Wander Arts Grille Sechs featuring a diverse selection of different versions, such as this Urban Camouflage version. It features replaceable parts and points of articulation - as well as tons of different weapons. It measures approximately 10.5cm x 6.2cm x 12.9cm in size. Order today!</p><p><b>[Accessories]</b></p><ul><li>Machine gun, shotgun</li><li>Rifle</li><li>Knuckle x2</li><li>Backpack</li><li>Replacement wrist x4</li></ul>},
+image_url: 'https://www.hlj.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/e/n/enx35140_0.jpg',
+price: 4008.09)
+# . . .
+
 #end
