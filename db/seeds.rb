@@ -1,4 +1,14 @@
 
+## PAYMENT TYPES ##
+
+PaymentType.delete_all
+
+PaymentType.create(name: 'Check', description: 'Pay with check')
+PaymentType.create(name: 'Credit Card', description: 'Pay with credit card')
+PaymentType.create(name: 'Purchase Order', description: 'Pay with puchase order')
+PaymentType.create(name: 'Paypal', description: 'Pay with Paypal')
+PaymentType.create(name: 'Google Pay', description: 'Pay with Google Pay')
+PaymentType.create(name: 'Bank Transfer', description: 'Pay with bank transfer')
 
 
 ## PRODUCT SEED ##
@@ -37,7 +47,7 @@ description:
             This is                             </span>
         a posable, high-grade or better injection-plastic kit of an item from the Gundam universe.                        </strong>
 </p>
-            <div class="productdescription"><p>The leading mobile suit that appears in the upcoming mobile game "Iron-Blooded Orphans Urdr Hunt" is now an HG kit from Bandai! It features a shield with a variable claw that expands to the left and right, and a gimmick that shoots the needle in the center; the thruster has a structure in which two huge armor units swing left and right. A rifle is also included. Get this new mobile suit for your own collection today!</p><p><br></p><ul>
+            <div class="productdescription"><p>The leading mobile suit that appears in the upcoming mobile game "Iron-Blooded Orphans Urdr Hunt" is now an HG kit from Bandai! It features a shield with a variable claw that expands to the left and right, and a gimmick that shoots the needle in the center; the thruster has a structure in which two huge armor units swing left and right. A rifle is also included. Get this new mobile suit for your own collection today!</p><p></p><ul>
 <li>
 <strong>[Includes]</strong>: Mace, rifle, shield, foil seals</li></ul>
 },
