@@ -148,6 +148,7 @@ header.main_banner {
     
     @media (min-width: $width_treshold) {
         flex-direction: row;
+        /*align-items: flex-start;*/
         -webkit-box-orient: horizontal;
     }
     
@@ -178,7 +179,7 @@ header.main_banner {
             min-width: 19em;
             margin: 2.5em .5% 0 1.5%;
             text-align: left; // desktop nav is left-aligned
-            padding: 1em 0.5em; // and needs more padding
+            padding: 1em 0.5em 1em 0.5em; // and needs more padding
         }
 
         ul.nav_buttons {
@@ -203,8 +204,6 @@ header.main_banner {
 
         div.date_time {
 
-            @extend %neu_main--inset;
-
             width: 80%;
 
             margin-top: 1em;
@@ -215,6 +214,11 @@ header.main_banner {
             text-align: center;
 
             line-height: 1.75em;
+
+            background-color: #93a293;
+
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15) inset, -5px -5px 10px rgba(255, 255, 255, 0.15) inset;
+            color: #353535;
 
             span {
                 white-space: pre-line;
