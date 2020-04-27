@@ -26,6 +26,12 @@
 
         margin-top: 1em;
 
+        &.column{
+            
+            @extend %flex_table--column;
+
+        }
+
         .flex_table-cell{
 
                 @extend %flex_cell;
