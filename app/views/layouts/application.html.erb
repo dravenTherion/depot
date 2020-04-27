@@ -32,9 +32,10 @@
                         <li class="neu_button"><a href="/contact">Contact</a></li>
                     </ul>
 
-                    <div class="date_time">
+                    <div id="clock" class="date_time">
                         <span><%= Time.now.strftime("%h %d, %Y\n%I:%M:%S %p") %></span>
                     </div>
+                    <%= javascript_pack_tag("run_clock") %>
 
                 </nav>
 
