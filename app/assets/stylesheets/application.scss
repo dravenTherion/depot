@@ -189,6 +189,12 @@ header.main_banner {
             margin: 0;
             padding: .5em 0em;
 
+            &.logged_in{
+
+                border-top: 3px solid transparentize($secondary_font_color, 0.85);
+
+            }
+
             @media (min-width: $width_treshold) {
                 width: 100%;
             }
@@ -197,7 +203,12 @@ header.main_banner {
                @extend %neu_button;
 
                a{
-                   padding: 0.45em;
+                    padding: 0.45em;
+               }
+
+               input[type="submit"]{
+                    width: 100%;
+                    padding: .551em;
                }
             }
         }

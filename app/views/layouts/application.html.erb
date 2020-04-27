@@ -32,6 +32,15 @@
                         <li class="neu_button"><a href="/contact">Contact</a></li>
                     </ul>
 
+                    <% if session[:user_id] %>
+                    <ul class="nav_buttons logged_in">
+                        <li class="neu_button"><%= link_to 'Orders', orders_path %></li>
+                        <li class="neu_button"><%= link_to 'Products', products_path %></li>
+                        <li class="neu_button"><%= link_to 'Users', users_path %></li>
+                        <li class="neu_button"><%= button_to 'Logout', logout_path, method: :delete %></li>
+                    </ul>
+                    <% end %>
+
                     <div id="clock" class="date_time">
                         <span><%= Time.now.strftime("%h %d, %Y\n%I:%M:%S %p") %></span>
                     </div>
