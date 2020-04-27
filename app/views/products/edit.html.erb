@@ -1,6 +1,14 @@
-<h1>Editing Product</h1>
+<div class="main_header">
+    <h1>Editing Product</h1>
+</div>
 
-<%= render 'form', product: @product %>
+<div class="flex_table column">
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+    <%= render 'form', product: @product %>
+
+    <div class="footerlinks">
+        <%= link_to 'Show', @product %> |
+        <%= link_to 'Back', products_path %>
+    </div>
+
+</div>

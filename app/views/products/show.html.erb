@@ -1,24 +1,33 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+<div class="main_header">
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <h1>
+      <%= @product.title %>
+    </h1>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+<div class="flex_table column">
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+    <div>
+      <%= image_tag @product.image_url %>
+    </div>
+
+    <div>
+      <%= sanitize(@product.description) %>
+    </div>
+
+    <div>
+      <%= @product.price %>
+    </div>
+
+    <div class="footerlinks">
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+    </div>
+
+</div>
+
