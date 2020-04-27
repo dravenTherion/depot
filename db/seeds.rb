@@ -4,8 +4,8 @@
 PaymentType.delete_all
 
 PaymentType.create(name: 'Check', description: 'Pay with check')
-PaymentType.create(name: 'Credit Card', description: 'Pay with credit card')
-PaymentType.create(name: 'Purchase Order', description: 'Pay with puchase order')
+PaymentType.create(name: 'Credit card', description: 'Pay with credit card')
+PaymentType.create(name: 'Purchase order', description: 'Pay with puchase order')
 PaymentType.create(name: 'Paypal', description: 'Pay with Paypal')
 PaymentType.create(name: 'Google Pay', description: 'Pay with Google Pay')
 PaymentType.create(name: 'Bank Transfer', description: 'Pay with bank transfer')
