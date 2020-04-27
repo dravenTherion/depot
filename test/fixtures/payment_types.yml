@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  product: two
-  cart: one
+  name: MyString
+  description: MyString
 
 two:
-  product: ruby
-  cart: one
+  name: MyString
+  description: MyString

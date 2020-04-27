@@ -18,6 +18,7 @@
 
 @import 'variables.scss';
 @import 'extensions.scss';
+@import 'effects.scss';
 
 body {
 
@@ -41,32 +42,85 @@ div.main_wrapper{
     margin: 0 auto;
 }
 
-header.main {
+header.main_banner {
+
+    display: none;
     
-    text-align: center; // center on mobile
-    
-    @media (min-width: $width_treshold_sml) {
+    text-align: center;
+    margin: 0;
+
+    overflow: hidden;
+
+    @media (min-width: $width_treshold_mid) {
+        display: block;
+
+        position: absolute;
+
+        width: 100%;
+        height: 18em;
+
+        left: 50%;
+        transform: translateX(-50%);
+
         text-align: left; // left align on desktop
-        height: 10em;
+
+        background-image: url(./header_bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        h1{
+            margin: 3.65em auto 0 auto;
+        }
+    }
+
+    @media (min-width: $width_treshold) {
+
+        height: 20em;
+
+        h1{
+            margin: 4.2em auto 0 auto;
+        }
+
     }
     
-    margin: 0;
-    
     h1 {
-        display: none;
+          
+        left: 0;
+        right: 0;
+        width: 27.2em;
+        color: rgba(237, 237, 241, 0.5);
+        font-size: 3.75em;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        padding-left: .5em;
+
+        sup{
+            display: inline-block;
+
+            height: .65em;
+
+            font-size: .75em;
+            transform: rotate(45deg);
+            transform-origin: center;
+
+            &.rotate{
+                @extend %rotate;
+            }
+        }
+
     }
 
 }
 
 .notice, #notice {
-    background: #ffb;
+    background: #4c9eb4;
     border-radius: 0.5em;
-    border: solid 0.177em #882;
-    color: #882;
+    color: #dbf0f5;
     font-weight: bold;
     margin-bottom: 1em;
     padding: 1em 1.414em;
     text-align: center;
+    box-shadow: 0 6px 15px 0px rgba(0, 0, 0, 0.25), inset 0px 1px 1px 0px rgba(255, 255, 255, .5);
 }
 
 #cart{
@@ -76,7 +130,6 @@ header.main {
     margin: 0;
 
 }
-
 
 .main_content {
 
@@ -88,13 +141,17 @@ header.main {
     
     display: -webkit-flex;
     
-    flex-direction: column; // mobile is horizontally laid out
+    flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     
     @media (min-width: $width_treshold) {
-        flex-direction: row; // desktop is vertically laid out
+        flex-direction: row;
         -webkit-box-orient: horizontal;
+    }
+    
+    @media (min-width: $width_treshold_mid) {
+        margin:  19em 0 0 0;
     }
         
     nav {
@@ -170,5 +227,120 @@ header.main {
     
     main {
         padding: 0.5em;
+    }
+}
+
+
+/* FORMS */
+
+.depot_form {
+
+    h1 {
+        color: $primary_font_color;
+
+        font-size: 1.99em;
+        line-height: 1.41em;
+        margin-bottom: 0.5em;
+        padding: 0;
+    }
+    
+    .field, 
+    .actions {
+        margin-bottom: 0.5em;
+        padding: 0;
+    }
+    
+    .actions {
+
+        @extend %neu_button_alt;
+
+        text-align: right;
+        padding: 1em 0;
+    }
+    
+    input, 
+    textarea, 
+    select, 
+    option {
+        
+        @extend %neu_main_small--inset;
+
+        border: none;
+        border-radius: 7px;
+        box-sizing: border-box;
+        font-size: 1em;
+        padding: 0.5em;
+        width: 100%;
+    }
+    
+    label {
+        padding: 0.5em 0;
+    }
+
+    input[type="submit"] {
+        
+        background-color: #bfb;
+        
+        border-radius: 0.354em;
+        border: solid thin #888;
+        color: black;
+
+        font-size: 1.1em;
+        font-weight: bold;
+        
+        padding: 1.2em 1em;
+
+        font-family: verdana, arial, helvetica, sans-serif;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #9d9;
+    }
+
+    // Also, clean up the error styling
+    #error_explanation {
+
+        background-color: white;
+        border-radius: 1em;
+        border: solid thin red;
+        margin-bottom: 0.5em;
+        padding: 0.5em;
+        width: 100%;
+        
+        h2 {
+            background: none;
+            color: red;
+            font-size: 1.41em;
+            line-height: 1.41em;
+            padding: 1em;
+        }
+        
+        ul {
+            margin-top: 0;
+            
+            li {
+                color: red;
+                font-size: 1em;
+            }
+        }
+    }
+
+    .field_with_errors {
+    
+        background: none;
+        color: red;
+        width: 100%;
+    
+        label {
+            font-weight: bold;
+        }
+
+        label::before {
+            content: "! ";
+        }
+
+        input,textarea {
+            background: pink;
+        }
     }
 }

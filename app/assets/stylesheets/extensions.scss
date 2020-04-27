@@ -105,10 +105,6 @@
         min-height: auto;
         margin-top: 0;
 
-        .empty_cart{
-            margin: 0.5em 0 1em 0;
-        }
-
         ul{
             width: 95%;
 
@@ -160,6 +156,27 @@
                     }
                 
                 }
+
+
+            }
+        }
+
+        .actions{
+
+            display: flex;
+            justify-content: space-between;
+
+            margin: .5em 0 .5em 0;
+
+            .empty_cart,
+            .proceed_checkout{
+
+                margin: 0.5em 0;
+
+                input[type='submit']{
+                    width: 6.5em;
+                }
+
             }
         }
 
@@ -217,14 +234,14 @@ $neu_text: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.7
 
     padding: 0.5em 0.5em;
 
-    a, input[type="submit"]{
+    a, input[type='submit']{
 
         display: block;
 
         text-align: center;
         text-decoration: none;
 
-        border-radius: 0.5em;
+        border-radius: 7px;
         border: none;
         outline: none;
 

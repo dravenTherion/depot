@@ -123,16 +123,22 @@
             }
         }
 
-        .empty_cart{
-                    
-            @extend %neu_button_alt;
-
-            margin: 1em 0 0 0.5em;
-
-            input[type="submit"]{
-                padding: 0.75em;
-            }
+        .actions{
             
+            .empty_cart,
+            .proceed_checkout{
+                        
+                @extend %neu_button_alt;
+
+                margin: 1em 0 0 0.5em;
+
+                input[type="submit"]{
+                    padding: 0.75em;
+                }
+                
+            }
+
         }
+
     }
 }

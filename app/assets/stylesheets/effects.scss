@@ -20,10 +20,23 @@
     }
 }
 
+@keyframes rotate {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
 %item_highlight {
     animation: item-highlight 1s;
 }
 
 %item_highlight--invert {
     animation: item-highlight-invert 1s;
+}
+
+%rotate{
+    animation: rotate 0.45s cubic-bezier(.46,.66,.32,1.35);
 }

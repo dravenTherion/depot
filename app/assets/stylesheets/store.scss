@@ -28,7 +28,7 @@
                 
 
                 border-radius: 25em;
-                background-color: red;
+                background-color: lighten(red, 15%);
 
                 color: white;
                 text-align: center;
@@ -163,7 +163,7 @@
                     h2 {
                         font-size: 1.4em;
                         
-                        color: $highlight_color;
+                        color: lighten($primary_font_color, 5%);
                         text-shadow: $neu_text;
                     }
 

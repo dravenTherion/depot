@@ -80,7 +80,7 @@
 
                         h2 {
                             font-size: 1.4em;
-                            color: $highlight_color;
+                            color: lighten($primary_font_color, 5%);
                             text-shadow: $neu_text;
                         }
                     }
@@ -154,7 +154,7 @@
 
             a{
                 padding: 1.2em;
-
+                font-size: 1.1em;
                 font-weight: bold;
             }
         }

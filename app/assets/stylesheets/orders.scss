@@ -1,0 +1,25 @@
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.orders{
+
+    @extend %inner_content;
+    
+    .main_header{
+        @extend %main_header;
+    }
+
+    .flex_table {
+
+        @extend %flex_table;
+        @extend %neu_main;
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        
+        min-height: 58em;
+
+    }
+
+}
