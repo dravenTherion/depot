@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'webpacker', '~> 4.0'# START: i18n-js
+
+gem 'i18n-js'
