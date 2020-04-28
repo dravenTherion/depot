@@ -18,13 +18,13 @@
         <span class="modify">
             
             <% if(cart.total_quantity > 1) %>
-                <div class="modify_quantity"><%= button_to '-', line_item, method: :delete, remote: is_remote %></div>
+                <div class="modify_quantity"><%= button_to '-', line_item, locale: I18n.locale, method: :delete, remote: is_remote %></div>
             <% else %>
-                <div class="modify_quantity"><%= button_to '-', cart, method: :delete, data: { confirm: 'This action will empty your cart, are you sure?' }, 
+                <div class="modify_quantity"><%= button_to '-', cart, method: :delete, data: { confirm: t('.cart_empty_dec') }, 
                 remote: is_remote %></div>
             <% end %>
 
-            <div class="modify_quantity"><%= button_to '+', line_items_path(product_id: line_item.product), remote: is_remote %></div>
+            <div class="modify_quantity"><%= button_to '+', line_items_path(product_id: line_item.product, locale: I18n.locale), remote: is_remote %></div>
 
         </span>
         <span class="quantity"><%= line_item.quantity %></span>

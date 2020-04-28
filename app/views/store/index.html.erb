@@ -4,7 +4,7 @@
 
 <div class="main_header">
 
-    <h1>Catalog</h1>
+    <h1><%= t('.title_html') %></h1>
 
     <% if defined?(@counter)
         if @counter > 5 %>
@@ -44,13 +44,13 @@
                     ">
                         <div class="image-thumb">
                             <%= image_tag  product.image_url, class: "list_image" %>
-                            <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+                            <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale), remote: true %>
                         </div>
                         <div class="price">
                             <%= number_to_currency(product.price, unit: '₱') + ' PHP' %>
                         </div>
                         <div class="add_to_cart">
-                            <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+                            <%= button_to t('.add_html'), line_items_path(product_id: product, locale: I18n.locale), remote: true %>
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
 
     <% else %>
 
-        <div class="empty">There are no products found.</div>
+        <div class="empty"><%= t(".no_products") %></div>
 
     <% end %>
 
