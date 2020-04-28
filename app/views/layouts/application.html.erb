@@ -21,7 +21,7 @@
             <header class="main_banner">
         
                 
-                    <%= form_tag store_index_path, class: 'locale', method: 'get' do %>
+                    <%= form_tag store_index_path, class: 'locale' do %>
                         <%= select_tag 'set_locale',
                         options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
                         <%= submit_tag 'submit', id: "submit_locale_change" %>
