@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
         ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
         
-        format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
+        format.html { redirect_to store_index_url(I18n.locale), notice: I18n.t('.thanks') }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
