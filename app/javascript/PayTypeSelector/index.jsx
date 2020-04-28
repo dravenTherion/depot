@@ -8,8 +8,9 @@ class PayTypeSelector extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onPayTypeSelected = this.onPayTypeSelected.bind(this);
         this.state = { selectedPayType: null };
+        
+        this.onPayTypeSelected = this.onPayTypeSelected.bind(this);
     }
 
     onPayTypeSelected(event) {

@@ -40,15 +40,42 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+   
+    admin = User.find(session[:user_id]);
+
+    auth = false;
+    notice = ''
+
+    @params = user_params;
+
+    if user_params[:password].empty?
+      auth = true;
+    else
+      notice = "Admin password required to effect change"
     end
+
+    if user_params[:admin_password] and !user_params[:admin_password].empty?
+      if(admin&.authenticate(user_params[:admin_password]))
+        auth = true;
+      else
+        notice = "Invalid admin password used";
+      end
+    end   
+    
+    if auth
+      respond_to do |format|
+        if @user.update({name: user_params[:name], password: user_params[:password]})
+          format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      redirect_to edit_user_path(@user), notice: notice;  
+    end
+    
   end
 
   # DELETE /users/1
@@ -73,6 +100,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password, :password_confirmation, :admin_password)
     end
 end
