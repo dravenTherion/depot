@@ -1,3 +1,29 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.sessions{
+
+    @extend %inner_content;
+    
+    .main_header{
+        @extend %main_header;
+    }
+
+    .flex_table {
+
+        @extend %flex_table;
+        @extend %neu_main;
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        
+        min-height: 58em;
+
+        form{
+            min-width: 40%;
+        }
+
+    }
+
+}

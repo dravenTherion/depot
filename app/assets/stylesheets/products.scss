@@ -29,6 +29,32 @@
         &.column{
             
             @extend %flex_table--column;
+            
+            flex-direction: column;
+            justify-content: center;
+
+            .image, .description, .price{
+                display: flex;
+                justify-content: center;
+                padding: 1em;;
+            }
+
+            .image{
+                
+                img{
+                    height: 30em;
+                }
+            }
+
+            .description{
+                flex-direction: column;
+                width: 50%;
+            }
+
+            .price{
+                font-size: 2em;
+                font-weight: bold;
+            }
 
         }
 

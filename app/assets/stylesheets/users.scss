@@ -1,3 +1,40 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables.scss';
+@import 'extensions.scss';
+
+.users{
+
+    @extend %inner_content;
+    
+    .main_header{
+        @extend %main_header;
+    }
+
+    .flex_table {
+
+        @extend %flex_table;
+        @extend %neu_main;
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        margin-top: 1em;
+        
+        min-height: 58em;
+
+        form{
+            min-width: 40%;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        p{
+            text-align: center;
+        }
+
+    }
+
+}

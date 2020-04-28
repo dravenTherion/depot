@@ -12,16 +12,16 @@
 
 <div class="flex_table column">
 
-    <div>
+    <div class="image">
       <%= image_tag @product.image_url %>
     </div>
 
-    <div>
+    <div class="description">
       <%= sanitize(@product.description) %>
     </div>
 
-    <div>
-      <%= @product.price %>
+    <div class="price">
+      <%= number_to_currency(@product.price, unit: '₱') + ' PHP' %>
     </div>
 
     <div class="footerlinks">

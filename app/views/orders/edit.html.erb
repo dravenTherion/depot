@@ -1,6 +1,16 @@
-<h1>Editing Order</h1>
+<div class="depot_form">
+    <div class="main_header">
+        <h1>Editing Order</h1>
+    </div>
 
-<%= render 'form', order: @order %>
+    <div class="flex_table column">
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+        <%= render 'form', order: @order %>
+
+        <div class="footerlinks">
+            <%= link_to 'Show', @order %> |
+            <%= link_to 'Back', orders_path %>
+        </div>
+
+    </div>
+</div>

@@ -1,9 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="main_header">
+    <h1>User</h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="flex_table column">
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="footerlinks">
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>
+

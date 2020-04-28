@@ -13,12 +13,107 @@
 
         @extend %flex_table;
         @extend %neu_main;
+        
+        margin-top: 1em;
 
         flex-direction: column;
-        align-content: center;
-        justify-content: center;
-        
-        min-height: 58em;
+
+        &.column{
+            
+            @extend %flex_table--column;
+            align-content: center;
+            justify-content: center;
+
+        }
+
+        .flex_table-row{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+        }
+
+        .flex_table-cell{
+
+                @extend %flex_cell;
+
+                width: 22%;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                padding: 1em;
+
+                &.list_line_odd {
+                    background-color: rgba(242, 242, 245, 0.5);
+                }
+                
+
+                
+                &.actions {
+
+                    justify-content: center;
+
+                    width: 15%;
+
+                    margin: 0;
+
+                    ul {
+
+                        display: flex;
+                        flex-direction: column;
+
+                        min-width: 6em;
+                        width: 80%;
+                        
+                        padding: 0;
+                        list-style: none;
+                        
+                        .neu_button {
+                            @extend %neu_button;
+                        }
+                    }
+
+                    @media (max-width: $width_treshold_mid) {
+
+                        width: 20%;
+                    
+                    }
+
+                    @media (max-width: $width_treshold_sml) {
+                        
+                        width: 100%;
+                    
+                    }
+                }
+
+        }
+
+    }
+
+    .footerlinks {
+
+        &.small{
+            width: 20%;
+        }
+
+        width: 50%;
+
+        left: 0;
+        right: 0;
+
+        margin: 1.5em auto;
+
+        .neu_button{
+
+            @extend %neu_button_alt;
+
+            a{
+                padding: 1.2em;
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+        }
 
     }
 
